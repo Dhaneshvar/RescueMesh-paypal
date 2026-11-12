@@ -1,0 +1,2 @@
+"""RescueMesh FastAPI application."""
+
