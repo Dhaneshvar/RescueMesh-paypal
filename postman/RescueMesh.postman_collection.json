@@ -1,0 +1,13 @@
+{
+  "info": {"name": "RescueMesh — PayPal lifecycle", "description": "Postman collection for the incident, allocation, PayPal and ledger lifecycle.", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [{"key": "api_url", "value": "http://127.0.0.1:8001"}, {"key": "mission_id", "value": ""}],
+  "item": [
+    {"name": "Health", "request": {"method": "GET", "url": "{{api_url}}/api/health"}},
+    {"name": "Dashboard", "request": {"method": "GET", "url": "{{api_url}}/api/dashboard"}},
+    {"name": "Create recovery mission", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"household_alias\":\"Postman test household\",\"location\":\"Riverbend\",\"urgency\":\"high\",\"needs\":[{\"item\":\"medicine\",\"quantity\":1}]}"}, "url": "{{api_url}}/api/missions"}},
+    {"name": "Check entitlement", "request": {"method": "POST", "body": {"mode": "raw", "raw": "{\"accepted\":true}"}, "url": "{{api_url}}/api/missions/{{mission_id}}/entitlement-check"}},
+    {"name": "Run allocation", "request": {"method": "POST", "url": "{{api_url}}/api/missions/{{mission_id}}/allocate"}},
+    {"name": "Create PayPal order", "request": {"method": "POST", "url": "{{api_url}}/api/missions/{{mission_id}}/paypal/order"}},
+    {"name": "Capture after fulfilment", "request": {"method": "POST", "url": "{{api_url}}/api/missions/{{mission_id}}/verify-and-capture"}}
+  ]
+}
