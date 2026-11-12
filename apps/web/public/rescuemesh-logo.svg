@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="RescueMesh logo">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0070e0"/><stop offset="1" stop-color="#003087"/></linearGradient></defs>
+  <rect width="512" height="512" rx="112" fill="#f4f8fc"/>
+  <path d="M256 92c-82 0-148 66-148 148 0 63 40 118 96 139v45h104v-45c56-21 96-76 96-139 0-82-66-148-148-148Z" fill="url(#g)"/>
+  <path d="M184 238h144M256 166v144M207 190l98 96M305 190l-98 96" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".95"/>
+  <path d="M204 424h104M220 451h72" stroke="#003087" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="256" cy="240" r="28" fill="#ffc439" stroke="#fff" stroke-width="10"/>
+</svg>

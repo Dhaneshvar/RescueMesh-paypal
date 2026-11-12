@@ -2,6 +2,10 @@
 
 ### Pay only for the verified gap.
 
+![RescueMesh disaster recovery exchange cover](apps/web/public/rescuemesh-cover.svg)
+
+<p align="center"><img src="apps/web/public/rescuemesh-logo.svg" alt="RescueMesh logo" width="140"></p>
+
 RescueMesh is a rights-first disaster recovery exchange. A household requests help, an NGO checks consent and nearby entitlement capacity, local partners publish what they can fulfil, and PayPal funds only the remaining verified gap.
 
 This is more than a payment checkout: it is a transparent chain from incident → entitlement → allocation → authorization → fulfilment → capture → donor notification.
@@ -94,6 +98,31 @@ Never commit `.env`, secrets, OAuth tokens, or MCP tokens. Use Sandbox Personal 
 ## Safety and scope
 
 Government entitlement and FPS checks are represented by a consent-based adapter and fictional records. Production would require formal government/partner agreements, PayPal webhooks, reconciliation, role-based access, retention policies, and audit-grade monitoring.
+
+## AG Grid sponsor integration
+
+RescueMesh uses AG Grid Community for the interactive donor transaction ledger. The frontend installs `ag-grid-react` and `ag-grid-community`, then provides all Community features through `AllCommunityModule` and `AgGridProvider` in `apps/web/src/main.jsx`:
+
+```jsx
+import { AllCommunityModule } from 'ag-grid-community'
+import { AgGridProvider } from 'ag-grid-react'
+
+const agGridModules = [AllCommunityModule]
+
+<AgGridProvider modules={agGridModules}>
+  <App />
+</AgGridProvider>
+```
+
+The **Transaction ledger · AG Grid** uses `AgGridReact` with dynamic SQLite-backed rows, sorting, filtering, pagination, animated rows, PayPal capture IDs, destination providers, mission IDs, statuses, currencies, and timestamps. See the [AG Grid React getting started guide](https://www.ag-grid.com/react-data-grid/getting-started/).
+
+## Sponsor technologies
+
+- **Postman** — an importable collection in `postman/RescueMesh.postman_collection.json` demonstrates the live API lifecycle from health check and mission creation through allocation, PayPal order creation, and capture.
+- **AG Grid** — the donor dashboard contains the dynamic transaction ledger with filtering, sorting, pagination, and PayPal capture metadata.
+- **Render** — deployment-ready architecture is documented, but no Render-hosted production URL is claimed in this repository.
+
+The repository intentionally describes only integrations that are present in code. Add a Postman workspace screenshot under `docs/` if you want it displayed here; no screenshot was found in the current `apps/api/models` directory.
 
 ## License
 
