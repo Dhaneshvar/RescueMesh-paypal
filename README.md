@@ -2,9 +2,9 @@
 
 ### Pay only for the verified gap.
 
-![RescueMesh disaster recovery exchange cover](apps/web/public/rescuemesh-cover.svg)
+![RescueMesh disaster recovery exchange cover](apps/web/public/rescuemesh-cover.png)
 
-<p align="center"><img src="apps/web/public/rescuemesh-logo.svg" alt="RescueMesh logo" width="140"></p>
+<p align="center"><img src="apps/web/public/rescuemesh-logo.png" alt="RescueMesh logo" width="140"></p>
 
 RescueMesh is a rights-first disaster recovery exchange. A household requests help, an NGO checks consent and nearby entitlement capacity, local partners publish what they can fulfil, and PayPal funds only the remaining verified gap.
 
