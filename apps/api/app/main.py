@@ -17,7 +17,7 @@ app = FastAPI(title="RescueMesh API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[settings.frontend_origin],
-    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$",
+    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$|^https://[a-z0-9-]+\.onrender\.com$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

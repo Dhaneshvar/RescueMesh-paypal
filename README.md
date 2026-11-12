@@ -61,6 +61,26 @@ npm run dev -- --host 127.0.0.1 --port 5189
 
 Open `http://127.0.0.1:5189`.
 
+## Deploy to Render
+
+The repository includes `render.yaml`, a Render Blueprint with two services:
+
+- `rescuemesh-api` — FastAPI backend on Render Web Service
+- `rescuemesh-web` — React/Vite static frontend
+
+### Blueprint setup
+
+1. Push this repository to GitHub.
+2. In Render, choose **New → Blueprint**.
+3. Select the `RescueMesh-paypal` repository and the `main` branch.
+4. Render detects `render.yaml` and creates both services.
+5. Open the `rescuemesh-api` service environment settings and add `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, and optionally `PAYPAL_MCP_ACCESS_TOKEN` as secret values.
+6. Open the `rescuemesh-web` service environment settings and add `VITE_PAYPAL_CLIENT_ID` using the same Sandbox REST app Client ID.
+7. Deploy both services. The frontend uses `https://rescuemesh-api.onrender.com` and the API allows Render origins through CORS.
+8. Test `https://rescuemesh-api.onrender.com/api/health` before opening the frontend URL.
+
+For production, replace Sandbox credentials and endpoints only after completing PayPal’s production onboarding and webhook/reconciliation checks.
+
 ## Environment
 
 Backend `apps/api/.env`:
