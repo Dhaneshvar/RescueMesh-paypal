@@ -1,10 +1,9 @@
 services:
   - type: web
     name: rescuemesh-api
-    runtime: python
+    runtime: docker
     rootDir: apps/api
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
     envVars:
       - key: PAYPAL_CLIENT_ID
