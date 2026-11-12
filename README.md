@@ -68,7 +68,7 @@ The repository includes `render.yaml`, a Render Blueprint with two services:
 - `rescuemesh-api` — FastAPI backend on Render Web Service
 - `rescuemesh-web` — React/Vite static frontend
 
-The API includes `apps/api/runtime.txt` to pin Render to Python 3.12.8. This avoids a Python 3.14 source build of `pydantic-core`/Rust during deployment.
+The repository includes `runtime.txt` and `apps/api/runtime.txt` to pin Render to Python 3.12.8. This avoids a Python 3.14 source build of `pydantic-core`/Rust during deployment. If the service root is the repository root, use `pip install -r apps/api/requirements.txt` and `uvicorn app.main:app --app-dir apps/api --host 0.0.0.0 --port $PORT`; if the root is `apps/api`, use the shorter commands shown above.
 
 ### Blueprint setup
 
